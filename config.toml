@@ -2,6 +2,7 @@ baseURL = "https://blog.wrhansen.dev/"
 languageCode = "en-us"
 title = "wesrhansen.dev blog"
 theme = "terminal"
+author = "Wesley Hansen"
 
 
 [params]
@@ -31,7 +32,7 @@ theme = "terminal"
 
     # set post to show the last updated
     # If you use git, you can set `enableGitInfo` to `true` and then post will automatically get the last updated
-    showLastUpdated = false
+    showLastUpdated = true
 
     # set a custom favicon (default is a `themeColor` square)
     # favicon = "favicon.ico"
@@ -47,7 +48,7 @@ theme = "terminal"
 
     # whether to show a table of contents
     # can be overridden in a page's front-matter
-    Toc = true
+    Toc = false
 
     # set title for the table of contents
     # can be overridden in a page's front-matter
@@ -65,8 +66,8 @@ theme = "terminal"
     [languages.en]
         languageName = "English"
         title = "wesrhansen.dev blog"
-        subtitle = "A simple, retro theme for Hugo"
-        owner = ""
+        subtitle = "A blog by Wesley Hansen"
+        owner = "Wesley Hansen"
         keywords = ""
         copyright = ""
         menuMore = "Show more"
@@ -86,7 +87,3 @@ theme = "terminal"
             identifier = "about"
             name = "About"
             url = "/about"
-        [[languages.en.menu.main]]
-            identifier = "showcase"
-            name = "Showcase"
-            url = "/showcase"
