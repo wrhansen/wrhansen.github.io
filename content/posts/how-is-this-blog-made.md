@@ -35,3 +35,4 @@ so I opted with my own domain: https://blog.wrhansen.dev/.
 
 * Host Hugo on Github: [link](https://gohugo.io/hosting-and-deployment/hosting-on-github/).
 * Hugo terminal theme: [link](https://github.com/panr/hugo-theme-terminal)
+* Github Pages: [link](https://pages.github.com/)
