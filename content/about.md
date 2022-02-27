@@ -7,7 +7,7 @@ draft: false
 ## Background
 
 I'm Wesley Hansen. I live in Holland, MI but have been working remotely since
-2019 (before COVID). I'm a software engineer with over 10 years experience in
+2019. I'm a software engineer with over 10 years experience in
 backend web development in the e-commerce and financial tech industries. I am
 currently employed at eMoney Advisor where I am a tech lead on the Incentive
 platform.
