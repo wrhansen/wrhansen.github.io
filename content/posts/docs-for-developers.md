@@ -44,7 +44,11 @@ I've never done anything explicity like this, however I can relate to the
 process. To put it into my own experiences, my team typically writes docs for
 the rest of the team to consume, as I mentioned before. We have an agreement on
 the team, that if any dev reads docs and they don't quite make sense to the dev
-reading them
+reading them it is their responsibility to update the docs to make more sense.
+This to me has some relevance to a *friction log* because you have a real-world
+scenario where your intended audience is reading/working through your
+documentation and they just happen to also have the ability to improve it
+directly.
 
 ## Overall Review
 
