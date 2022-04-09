@@ -9,11 +9,11 @@ keywords = []
 description = ""
 showFullContent = false
 readingTime = true
-draft = true
+draft = false
 Toc = true
 +++
 
-## Book Review: The Book
+## Book Review
 
 This is my review (and notes) of the book [Docs for Developers: An Engineer's
 Field Guide to Technical Writing][book] by Jared Bhatti, Zachary Sarah Corleissen,
@@ -52,6 +52,15 @@ directly.
 
 ## Overall Review
 
+After chapter 1 I found 90% of the book pretty standard information and got
+nothing out of the information that I really thought was worthwhile. For this
+reason I stopped taking individual chapter notes. There was one section in
+one of the final chapters that explained some of the most common ways to
+organize your docs site. It gave me some ideas of how to organize the docs that
+I write for work in a way that makes the information grouped in a way that's easy
+to find stuff.
+
+I give this book 2 stars.
 
 [book]: https://docsfordevelopers.com/  "Official Book Site"
 
