@@ -4,7 +4,7 @@ title = "wesrhansen.dev blog"
 theme = "terminal"
 author = "Wesley Hansen"
 enableGitInfo = true
-
+enableEmoji = true
 
 [params]
     # dir name of your main content (default is `content/posts`).

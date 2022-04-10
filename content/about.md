@@ -21,3 +21,5 @@ building systems both large and small because these technologies allow
 developers to work incredibly efficiently while offering a massive pluggable
 ecosystem that allows you to focus on the parts that make your app unique. It's
 a joy to use Django's ORM to model data that's fit for SQL relational databases.
+
+:computer:
