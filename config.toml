@@ -1,6 +1,6 @@
 baseURL = "https://blog.wrhansen.dev/"
 languageCode = "en-us"
-title = "wesrhansen.dev blog"
+title = "wrhansen.dev blog"
 theme = "terminal"
 author = "Wesley Hansen"
 enableGitInfo = true
