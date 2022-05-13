@@ -65,7 +65,7 @@ enableEmoji = true
 [languages]
     [languages.en]
         languageName = "English"
-        title = "wesrhansen.dev blog"
+        title = "wrhansen.dev blog"
         subtitle = "A blog by Wesley Hansen"
         owner = "Wesley Hansen"
         keywords = ""
@@ -79,7 +79,7 @@ enableEmoji = true
         missingBackButtonLabel = "Back to home page"
 
     [languages.en.params.logo]
-        logoText = "wesrhansen.dev blog"
+        logoText = "wrhansen.dev blog"
         logoHomeLink = "/"
 
     [languages.en.menu]
