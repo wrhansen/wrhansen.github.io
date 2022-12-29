@@ -1,4 +1,86 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>wrhansen.dev blog</title><link>https://blog.wrhansen.dev/</link><description>Recent content on wrhansen.dev blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>Wesley R Hansen</copyright><lastBuildDate>Fri, 08 Apr 2022 23:24:16 -0400</lastBuildDate><atom:link href="https://blog.wrhansen.dev/index.xml" rel="self" type="application/rss+xml"/><item><title>Email for Professionals</title><link>https://blog.wrhansen.dev/posts/email-for-professionals/</link><pubDate>Fri, 08 Apr 2022 23:24:16 -0400</pubDate><guid>https://blog.wrhansen.dev/posts/email-for-professionals/</guid><description>Problem In my professional career, from time to time, I get forwarded an email, out of the blue from a colleague, and this email has a message that reads &amp;ldquo;Hey Wes, can you do this for me?&amp;rdquo;. Following this seemingly simple message is a week-long thread of thirty emails between several people and I am the lucky individual who gets added to the chain in hopes that I can resolve the issue.</description><content>&lt;h2 id="problem">Problem&lt;/h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>wrhansen.dev blog</title><link>https://blog.wrhansen.dev/</link><description>Recent content on wrhansen.dev blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>Wesley R Hansen</copyright><lastBuildDate>Wed, 28 Dec 2022 20:15:00 -0400</lastBuildDate><atom:link href="https://blog.wrhansen.dev/index.xml" rel="self" type="application/rss+xml"/><item><title>TIL: AWS Elastic Beanstalk</title><link>https://blog.wrhansen.dev/posts/aws-journey-elasticbeanstalk/</link><pubDate>Wed, 28 Dec 2022 20:15:00 -0400</pubDate><guid>https://blog.wrhansen.dev/posts/aws-journey-elasticbeanstalk/</guid><description>Background My immediate family (8 of us total) has a private chat group using the GroupMe app 1 that we have been using for a couple of years now. When we first started using GroupMe for our chat, I was happy because it offered an API that you use to enhance the group chat. So I played around with it one weekend and the hansenbot was created.
+The hansenbot is a pretty simple django app that exposes a hook URL that you can setup that GroupMe will forward all messages in your group to.</description><content>&lt;h2 id="background">Background&lt;/h2>
+&lt;p>My immediate family (8 of us total) has a private chat group using the &lt;em>GroupMe&lt;/em> app &lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>
+that we have been using for a couple of years now. When we first started using &lt;em>GroupMe&lt;/em>
+for our chat, I was happy because it offered an &lt;a href="https://dev.groupme.com/">API&lt;/a>
+that you use to enhance the group chat. So I played around with it one weekend
+and the &lt;a href="https://github.com/wrhansen/hansenbot">hansenbot&lt;/a> was created.&lt;/p>
+&lt;p>The &lt;code>hansenbot&lt;/code> is a pretty simple django app that exposes a hook URL that you
+can setup that &lt;em>GroupMe&lt;/em> will forward all messages in your group to. I created the
+&lt;code>hansenbot&lt;/code> to respond to certain commands that are typed in the group chat that
+have the following form: &lt;code>!hb &amp;lt;command&amp;gt;&lt;/code> where &lt;code>!hb&lt;/code> tells the bot that the given
+message is a command that it needs to respond to and &lt;code>&amp;lt;command&amp;gt;&lt;/code> is one of the
+preconfigured commands that I created that report information back to the
+&lt;em>GroupMe&lt;/em> group. These commands I created range from telling &amp;ldquo;dad jokes&amp;rdquo;, giving
+current weather information for all the locations where my family lives and
+information about the next upcoming birthday.&lt;/p>
+&lt;p>Eventually I also added a &amp;ldquo;daily digest&amp;rdquo; feature, implemented as a django management
+command, that can be run every morning to give an update on all the things the
+family cares about. In our case that&amp;rsquo;s upcoming birthdays, reminders for important
+dates and weather forecasts.&lt;/p>
+&lt;h2 id="heroku-is-easy-to-setup">Heroku is Easy to Setup&lt;/h2>
+&lt;p>It was relatively easy to whip up a simple django app but in order to configure
+the &lt;em>GroupMe&lt;/em> callback, I needed to deploy this somehwere publicly. Personally
+I don&amp;rsquo;t like spending a lot of time on the logistics of deploying stuff so I opted
+to use &lt;em>Heroku&lt;/em> for such a thing. With Heroku, I essentially just had to install
+a couple lines of code in the django settings, set up a &lt;code>Procfile&lt;/code>, connect your
+github account and repository and away it goes.&lt;/p>
+&lt;p>My initial setup was great, and worked really well with &lt;em>Heroku&lt;/em> because everything
+was free, including the &amp;ldquo;dyno&amp;rdquo;, postgres database, and redis instance. Everything
+a dev needs to create a high functioning site. &lt;em>Heroku&lt;/em> had a pretty decent &amp;ldquo;free&amp;rdquo;
+tier to get developers hooked on using their platform and
+seeing the benefits first-hand. It wasn&amp;rsquo;t until I wanted to introduce a &amp;ldquo;cron&amp;rdquo;
+job that my &lt;em>Heroku&lt;/em> setup required some form of payment. The introduction of a
+&amp;ldquo;cron&amp;rdquo; job (in my case, I created a celery beat process) required an additional
+dyno, heroku&amp;rsquo;s concept of a container, which seems to be limited to a single
+process. So, bumping up the dynos from one to two moved me a $14/month payment
+plan. I have to admit, it was quite high in my opinion but overall I decided it
+was still worth it because I really do not like messing around with deployments
+and this was still super convenient.&lt;/p>
+&lt;h2 id="the-problem-heroku-made-some-big-changes">The Problem: Heroku Made Some Big Changes&lt;/h2>
+&lt;p>This past year, &lt;em>Heroku&lt;/em> decided to make a pretty significant change to the
+pricing on their platform. You can read more about these changes &lt;a href="https://blog.heroku.com/next-chapter">here&lt;/a>.
+Essentially these changes were going to do away with the &amp;ldquo;Hobby&amp;rdquo; tier by no
+longer offering free versions of database and redis. Once the change came out my
+database and redis instance were gone and my simple little bot no longer worked.
+I looked into it and it just wasn&amp;rsquo;t worth it anymore to have my tiny little bot
+site deployed on Heroku anymore (it would have doubled my monthly payments to
+keep it going)!&lt;/p>
+&lt;p>So I set out to find a replacement platform where I could deploy my bot site to
+at a reasonable price.&lt;/p>
+&lt;h2 id="the-switch-to-aws">The Switch to AWS&lt;/h2>
+&lt;p>I ultimately decided that I wanted to learn more about AWS, as I am knowledgable
+of some services that AWS offers, but wanted to get more of an understanding of
+it in general since we use it a lot at work and our use cases are currently growing.
+I know AWS is a vast collection of cloud-based tools and services and didn&amp;rsquo;t really
+know what the best option for my bot site is. So I asked some of my colleagues
+for suggestions on how I should go about deploying this site on AWS. One colleague
+suggested I use Elastic Beanstalk and others suggested Lambda. I knew about
+serverless lambda as a concept, but I really wanted to try something that was
+closer in scope to Heroku&amp;rsquo;s platform to minimize the changes I&amp;rsquo;d need to make to
+my bot site.&lt;/p>
+&lt;p>So, I decided to create my own private AWS account, and sign up for a year
+of &amp;ldquo;Free Tier&amp;rdquo;, which you can do &lt;a href="https://aws.amazon.com/free/?nc2=h_ql_pr_ft&amp;amp;all-free-tier.sort-by=item.additionalFields.SortRank&amp;amp;all-free-tier.sort-order=asc&amp;amp;awsf.Free%20Tier%20Types=*all&amp;amp;awsf.Free%20Tier%20Categories=*all">here&lt;/a>.
+My experience with setting up the account was fine, it&amp;rsquo;s fairly simple to enter
+in all the standard information, and credit card, etc. When I finally get through
+the account creation process and landed on the management console homepage&amp;hellip;I was
+a bit overwhelmed. You get a sense that you&amp;rsquo;re into something much bigger than
+yourself. There&amp;rsquo;s seriously millions of things you can do with this account and
+it isn&amp;rsquo;t necessarily immediately clear. To be fair to Amazon, they know this
+about AWS (and cloud in general) and provide plenty of links to &amp;ldquo;getting started&amp;rdquo;
+articles, documentation and tutorials to get you going on your journey into AWS.&lt;/p>
+&lt;img src="https://blog.wrhansen.dev/static/resources/aws-help-widget.png" alt="AWS Console Widget" class="center" style="border-radius: 8px;" />
+&lt;p>More to come&amp;hellip;&lt;/p>
+&lt;!-- raw HTML omitted -->
+&lt;!-- raw HTML omitted -->
+&lt;div class="footnotes" role="doc-endnotes">
+&lt;hr>
+&lt;ol>
+&lt;li id="fn:1">
+&lt;p>hate this service but that&amp;rsquo;s another story&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;/div></content></item><item><title>Email for Professionals</title><link>https://blog.wrhansen.dev/posts/email-for-professionals/</link><pubDate>Fri, 08 Apr 2022 23:24:16 -0400</pubDate><guid>https://blog.wrhansen.dev/posts/email-for-professionals/</guid><description>Problem In my professional career, from time to time, I get forwarded an email, out of the blue from a colleague, and this email has a message that reads &amp;ldquo;Hey Wes, can you do this for me?&amp;rdquo;. Following this seemingly simple message is a week-long thread of thirty emails between several people and I am the lucky individual who gets added to the chain in hopes that I can resolve the issue.</description><content>&lt;h2 id="problem">Problem&lt;/h2>
 &lt;p>In my professional career, from time to time, I get forwarded an email, out of
 the blue from a colleague, and this email has a message that reads &amp;ldquo;Hey Wes, can
 you do this for me?&amp;rdquo;. Following this seemingly simple message is a week-long
