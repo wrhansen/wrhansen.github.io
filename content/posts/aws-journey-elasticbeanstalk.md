@@ -98,7 +98,7 @@ it isn't necessarily immediately clear. To be fair to Amazon, they know this
 about AWS (and cloud in general) and provide plenty of links to "getting started"
 articles, documentation and tutorials to get you going on your journey into AWS.
 
-{{< image src="/static/resources/aws-help-widget.png" alt="AWS Console Widget" position="center" style="border-radius: 8px;" >}}
+{{< image src="/resources/aws-help-widget.png" alt="AWS Console Widget" position="center" style="border-radius: 8px;" >}}
 
 More to come...
 
