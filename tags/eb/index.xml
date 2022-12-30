@@ -141,8 +141,8 @@ someone already had a custom action for building and deploying EB environments.&
 action (&lt;a href="https://github.com/wrhansen/hansenbot/blob/master/.github/workflows/deploy-eb.yaml">here&lt;/a>)
 looks like this:&lt;/p>
 &lt;div class="collapsable-code">
-&lt;input id="419827653" type="checkbox" />
-&lt;label for="419827653">
+&lt;input id="129673458" type="checkbox" />
+&lt;label for="129673458">
 &lt;span class="collapsable-code__language">yaml&lt;/span>
 &lt;span class="collapsable-code__title">Github Action&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="△" data-label-collapse="▽">&lt;/span>

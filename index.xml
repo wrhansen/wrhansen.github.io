@@ -141,8 +141,8 @@ someone already had a custom action for building and deploying EB environments.&
 action (&lt;a href="https://github.com/wrhansen/hansenbot/blob/master/.github/workflows/deploy-eb.yaml">here&lt;/a>)
 looks like this:&lt;/p>
 &lt;div class="collapsable-code">
-&lt;input id="419827653" type="checkbox" />
-&lt;label for="419827653">
+&lt;input id="129673458" type="checkbox" />
+&lt;label for="129673458">
 &lt;span class="collapsable-code__language">yaml&lt;/span>
 &lt;span class="collapsable-code__title">Github Action&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="△" data-label-collapse="▽">&lt;/span>
@@ -212,7 +212,7 @@ lots of spam messages that I might generate while testing new features.&lt;/p>
 &lt;p>I hate &lt;em>GroupMe&lt;/em>, but that&amp;rsquo;s another story&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
 &lt;/li>
 &lt;/ol>
-&lt;/div></content></item><item><title>Email for Professionals</title><link>https://blog.wrhansen.dev/posts/email-for-professionals/</link><pubDate>Fri, 08 Apr 2022 23:24:16 -0400</pubDate><guid>https://blog.wrhansen.dev/posts/email-for-professionals/</guid><description>Problem In my professional career, from time to time, I get forwarded an email, out of the blue from a colleague, and this email has a message that reads &amp;ldquo;Hey Wes, can you do this for me?&amp;rdquo;. Following this seemingly simple message is a week-long thread of thirty emails between several people and I am the lucky individual who gets added to the chain in hopes that I can resolve the issue.</description><content>&lt;h2 id="problem">Problem&lt;/h2>
+&lt;/div></content></item><item><title>Email for Professionals</title><link>https://blog.wrhansen.dev/posts/2022/email-for-professionals/</link><pubDate>Fri, 08 Apr 2022 23:24:16 -0400</pubDate><guid>https://blog.wrhansen.dev/posts/2022/email-for-professionals/</guid><description>Problem In my professional career, from time to time, I get forwarded an email, out of the blue from a colleague, and this email has a message that reads &amp;ldquo;Hey Wes, can you do this for me?&amp;rdquo;. Following this seemingly simple message is a week-long thread of thirty emails between several people and I am the lucky individual who gets added to the chain in hopes that I can resolve the issue.</description><content>&lt;h2 id="problem">Problem&lt;/h2>
 &lt;p>In my professional career, from time to time, I get forwarded an email, out of
 the blue from a colleague, and this email has a message that reads &amp;ldquo;Hey Wes, can
 you do this for me?&amp;rdquo;. Following this seemingly simple message is a week-long
@@ -234,7 +234,7 @@ make sure to be very precise with your message that you write to them. Don&amp;r
 make them go through all the past emails to try to figure out the context of
 what you&amp;rsquo;re asking. Instead, summarize precisely the key points in the chain
 and explicitly ask what you&amp;rsquo;re looking for your colleague to do for you. Their
-time is as valuable as their&amp;rsquo;s so don&amp;rsquo;t waste it!&lt;/p></content></item><item><title>Docs for Developers</title><link>https://blog.wrhansen.dev/posts/docs-for-developers/</link><pubDate>Sun, 27 Feb 2022 20:28:50 -0500</pubDate><guid>https://blog.wrhansen.dev/posts/docs-for-developers/</guid><description>Book Review This is my review (and notes) of the book Docs for Developers: An Engineer&amp;rsquo;s Field Guide to Technical Writing by Jared Bhatti, Zachary Sarah Corleissen, Jen Lambourne, David Nunez, and Heidi Waterhouse. I purchased this book because I am passionate about good developer docs. I can easily spot good developer docs while working on a project but find it hard to write them myself in a way that is useful to myself and others.</description><content>&lt;h2 id="book-review">Book Review&lt;/h2>
+time is as valuable as their&amp;rsquo;s so don&amp;rsquo;t waste it!&lt;/p></content></item><item><title>Docs for Developers</title><link>https://blog.wrhansen.dev/posts/2022/docs-for-developers/</link><pubDate>Sun, 27 Feb 2022 20:28:50 -0500</pubDate><guid>https://blog.wrhansen.dev/posts/2022/docs-for-developers/</guid><description>Book Review This is my review (and notes) of the book Docs for Developers: An Engineer&amp;rsquo;s Field Guide to Technical Writing by Jared Bhatti, Zachary Sarah Corleissen, Jen Lambourne, David Nunez, and Heidi Waterhouse. I purchased this book because I am passionate about good developer docs. I can easily spot good developer docs while working on a project but find it hard to write them myself in a way that is useful to myself and others.</description><content>&lt;h2 id="book-review">Book Review&lt;/h2>
 &lt;p>This is my review (and notes) of the book &lt;a href="https://docsfordevelopers.com/" title="Official Book Site">Docs for Developers: An Engineer&amp;rsquo;s
 Field Guide to Technical Writing&lt;/a> by Jared Bhatti, Zachary Sarah Corleissen,
 Jen Lambourne, David Nunez, and Heidi Waterhouse. I purchased this book because
@@ -274,7 +274,7 @@ one of the final chapters that explained some of the most common ways to
 organize your docs site. It gave me some ideas of how to organize the docs that
 I write for work in a way that makes the information grouped in a way that&amp;rsquo;s easy
 to find stuff.&lt;/p>
-&lt;p>I give this book 2 stars.&lt;/p></content></item><item><title>How is This Blog Made?</title><link>https://blog.wrhansen.dev/posts/how-is-this-blog-made/</link><pubDate>Mon, 21 Feb 2022 11:57:49 -0500</pubDate><guid>https://blog.wrhansen.dev/posts/how-is-this-blog-made/</guid><description>Technology This blog is written in markdown and uses the Hugo static site generator. I found a nice minimalist theme called terminal that styles the site the way you see here.
+&lt;p>I give this book 2 stars.&lt;/p></content></item><item><title>How is This Blog Made?</title><link>https://blog.wrhansen.dev/posts/2022/how-is-this-blog-made/</link><pubDate>Mon, 21 Feb 2022 11:57:49 -0500</pubDate><guid>https://blog.wrhansen.dev/posts/2022/how-is-this-blog-made/</guid><description>Technology This blog is written in markdown and uses the Hugo static site generator. I found a nice minimalist theme called terminal that styles the site the way you see here.
 Deployment For simplicity and ease-of-use, I decided to host this blog on github pages and take advantage of free static site hosting. You can find the contents of this blog in the following repo: link. It&amp;rsquo;s easy to use because github automatically builds and deploys anytime you merge a new commit to the main branch.</description><content>&lt;h2 id="technology">Technology&lt;/h2>
 &lt;p>This blog is written in markdown and uses the &lt;a href="https://gohugo.io/">Hugo&lt;/a> static
 site generator. I found a nice minimalist theme called &lt;a href="">terminal&lt;/a> that styles
