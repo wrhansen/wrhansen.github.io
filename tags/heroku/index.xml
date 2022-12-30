@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>heroku on wrhansen.dev blog</title><link>https://blog.wrhansen.dev/tags/heroku/</link><description>Recent content in heroku on wrhansen.dev blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>Wesley R Hansen</copyright><lastBuildDate>Wed, 28 Dec 2022 20:15:00 -0400</lastBuildDate><atom:link href="https://blog.wrhansen.dev/tags/heroku/index.xml" rel="self" type="application/rss+xml"/><item><title>TIL: AWS Elastic Beanstalk</title><link>https://blog.wrhansen.dev/posts/aws-journey-elasticbeanstalk/</link><pubDate>Wed, 28 Dec 2022 20:15:00 -0400</pubDate><guid>https://blog.wrhansen.dev/posts/aws-journey-elasticbeanstalk/</guid><description>Background My immediate family (8 of us total) has a private chat group using the GroupMe app 1 that we have been using for a couple of years now. When we first started using GroupMe for our chat, I was happy because it offered an API that you use to enhance the group chat. So I played around with it one weekend and the hansenbot was created.
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>heroku on wrhansen.dev blog</title><link>https://blog.wrhansen.dev/tags/heroku/</link><description>Recent content in heroku on wrhansen.dev blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>Wesley R Hansen</copyright><lastBuildDate>Wed, 28 Dec 2022 20:15:00 -0400</lastBuildDate><atom:link href="https://blog.wrhansen.dev/tags/heroku/index.xml" rel="self" type="application/rss+xml"/><item><title>TIL: AWS Elastic Beanstalk</title><link>https://blog.wrhansen.dev/posts/2022/aws-journey-elasticbeanstalk/</link><pubDate>Wed, 28 Dec 2022 20:15:00 -0400</pubDate><guid>https://blog.wrhansen.dev/posts/2022/aws-journey-elasticbeanstalk/</guid><description>Background My immediate family (8 of us total) has a private chat group using the GroupMe app 1 that we have been using for a couple of years now. When we first started using GroupMe for our chat, I was happy because it offered an API that you use to enhance the group chat. So I played around with it one weekend and the hansenbot was created.
 The hansenbot is a pretty simple django app that exposes a hook URL that you can setup that GroupMe will forward all messages in your group to.</description><content>&lt;h2 id="background">Background&lt;/h2>
 &lt;p>My immediate family (8 of us total) has a private chat group using the &lt;em>GroupMe&lt;/em> app &lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>
 that we have been using for a couple of years now. When we first started using &lt;em>GroupMe&lt;/em>
@@ -60,7 +60,7 @@ serverless lambda as a concept, but I really wanted to try something that was
 closer in scope to Heroku&amp;rsquo;s platform to minimize the changes I&amp;rsquo;d need to make to
 my bot site.&lt;/p>
 &lt;p>So, I decided to create my own private AWS account, and sign up for a year
-of &amp;ldquo;Free Tier&amp;rdquo;, which you can do &lt;a href="https://aws.amazon.com/free/?nc2=h_ql_pr_ft&amp;amp;all-free-tier.sort-by=item.additionalFields.SortRank&amp;amp;all-free-tier.sort-order=asc&amp;amp;awsf.Free%20Tier%20Types=*all&amp;amp;awsf.Free%20Tier%20Categories=*all">here&lt;/a>.
+of &amp;ldquo;Free Tier&amp;rdquo;, which you can do &lt;a href="https://aws.amazon.com/free/">here&lt;/a>.
 My experience with setting up the account was fine, it&amp;rsquo;s fairly simple to enter
 in all the standard information, and credit card, etc. When I finally get through
 the account creation process and landed on the management console homepage&amp;hellip;I was
@@ -70,14 +70,146 @@ it isn&amp;rsquo;t necessarily immediately clear. To be fair to Amazon, they kno
 about AWS (and cloud in general) and provide plenty of links to &amp;ldquo;getting started&amp;rdquo;
 articles, documentation and tutorials to get you going on your journey into AWS.&lt;/p>
 &lt;img src="https://blog.wrhansen.dev/resources/aws-help-widget.png" alt="AWS Console Widget" class="center" style="border-radius: 8px;" />
-&lt;p>More to come&amp;hellip;&lt;/p>
-&lt;!-- raw HTML omitted -->
-&lt;!-- raw HTML omitted -->
+&lt;h2 id="elastic-beanstalk-is-confusingat-first">Elastic Beanstalk Is Confusing&amp;hellip;At First&lt;/h2>
+&lt;p>So I started my AWS journey by watching a few videos and reading through some
+of the basic overview articles that the above help widget provided. It walked
+me through some basic definitions of concepts and services that AWS offers.&lt;/p>
+&lt;p>I also got acquainted with installing &lt;a href="https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html">AWS CLI&lt;/a>
+and configuring &lt;a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html">IAM&lt;/a>
+to give me a separate user admin user account from the root and also setup
+additional security like MFA login for the account.&lt;/p>
+&lt;p>Finally the tutorials lead me to try deploying a simple web app on
+&lt;a href="https://aws.amazon.com/getting-started/guides/deploy-webapp-elb/">AWS Elastic Beanstalk&lt;/a>.
+This tutorial was fairly small and simple to walk through although I must say it
+did nothing to help me really understand what Elastic Beanstalk (EB) does. The
+tutoral has you write out a bunch of custom javascript that actually create
+infrastructure like EC2 instances and S3 buckets. I kinda got the idea, but hoped
+that maybe there was a better, more simpler way without having to write all this
+custom code (especially in javascript).&lt;/p>
+&lt;p>I told myself to stick to the tutorial even though I was a little worried about
+the direction it was going, and felt like I wasn&amp;rsquo;t exactly learning about what
+EB actually was.&lt;/p>
+&lt;h2 id="finding-a-more-suitable-tutorial">Finding A More Suitable Tutorial&lt;/h2>
+&lt;p>Eventaully I finished that tutorial, and ended up with the product as desired,
+and only had to suffer through a few snags in the tutorial where the tutorial
+instructions were not entirely up to date with the latest libraries you installed.
+A few minutes of searching around the internet was able to clear up any of these
+issues so it was fairly straight forward.&lt;/p>
+&lt;p>After finishing this particularly confusing (to me) tutorial, I decided to dig
+a little deeper and see if there was a tutorial that more directly suited my
+needs now that the particular track I was following through the AWS help widget
+had ended. So I did a quick search for &amp;ldquo;django aws eb tutorial&amp;rdquo; and the very first
+result was another tutorial on the AWS documentation &lt;a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create-deploy-python-django.html">here&lt;/a>.
+I was surprised because the title was verbatim what I was looking for:
+&lt;em>&amp;ldquo;Deploying a Django application to Elastic Beanstalk&amp;rdquo;&lt;/em>. Perfect!&lt;/p>
+&lt;h2 id="the-right-tutorial">The Right Tutorial&lt;/h2>
+&lt;p>I was able to skip through the first three sections of the tutorial because they
+simply involved setting up a python virtualenv, installing django and getting
+a basic django project created. Instead, I was just going to tweak my existing
+&lt;code>hansenbot&lt;/code> site to work with this thing. I urge you to follow through the tutorial
+linked in the previous section, as I won&amp;rsquo;t detail it here. Instead I just want to
+highlight the things that I learned and had to do to get my old heroku site ported
+over to EB. So here&amp;rsquo;s a fairly quick rundown of what I had to change:&lt;/p>
+&lt;ul>
+&lt;li>Create a &lt;code>.ebextensions&lt;/code> folder in the root of the project.&lt;/li>
+&lt;li>Install &lt;code>awsebcli&lt;/code> tool. (Note: I chose to do this through &lt;a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/eb-cli3-install-osx.html">homebrew&lt;/a>)&lt;/li>
+&lt;li>Removed any references to django-heroku library (no longer using it in the project)&lt;/li>
+&lt;li>Change database to go off environment variables for RDS connection&lt;/li>
+&lt;li>From the aws EB management console, configure a RDS database for the application.
+&lt;a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create-deploy-python-rds.html#python-rds-create">link&lt;/a>&lt;/li>
+&lt;li>Removed any reference to redis (for now) and configured celery tasks to run &amp;ldquo;ALWAYS_EAGER&amp;rdquo;&lt;/li>
+&lt;li>Configure an &lt;em>ebextension&lt;/em> config file to run django &lt;code>migrate&lt;/code> and &lt;code>collectstatic&lt;/code>
+on container deployment: &lt;a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create-deploy-python-django.html#python-django-migrate-site">link&lt;/a>&lt;/li>
+&lt;li>Configure an &lt;em>ebextension&lt;/em> cron job to run the bot&amp;rsquo;s &amp;ldquo;daily digest&amp;rdquo; command:
+&lt;a href="https://aws.amazon.com/premiumsupport/knowledge-center/cron-job-elastic-beanstalk/">link&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="things-i-learned">Things I Learned&lt;/h2>
+&lt;ul>
+&lt;li>EB works off of commits to your git repository, &lt;a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/eb3-cli-git.html">by default&lt;/a>&lt;/li>
+&lt;li>EB can use ProcFiles like Heroku: &lt;a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/python-configuration-procfile.html">link&lt;/a>&lt;/li>
+&lt;li>You can use &lt;code>eb shell&lt;/code> to gain shell access to the EC2 instance that is running
+your site. &lt;a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/eb3-ssh.html">link&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="use-github-actions-for-automation">Use Github Actions for Automation&lt;/h2>
+&lt;p>Now that I got everything working minimally, I wanted again to move the deployment
+from my local shell (using the &lt;code>awsebcli&lt;/code> commands) to some form of automation so
+that I can &amp;ldquo;set it and forget it&amp;rdquo;. This was actually relatively easy by configuring
+Github Actions on the repository. With a quick google search, I was able to find
+someone already had a custom action for building and deploying EB environments.&lt;/p>
+&lt;p>This was easy to do, by following the readme for the github action defined
+&lt;a href="https://github.com/einaregilsson/beanstalk-deploy">here&lt;/a>. In the end my github
+action (&lt;a href="https://github.com/wrhansen/hansenbot/blob/master/.github/workflows/deploy-eb.yaml">here&lt;/a>)
+looks like this:&lt;/p>
+&lt;div class="collapsable-code">
+&lt;input id="419827653" type="checkbox" />
+&lt;label for="419827653">
+&lt;span class="collapsable-code__language">yaml&lt;/span>
+&lt;span class="collapsable-code__title">Github Action&lt;/span>
+&lt;span class="collapsable-code__toggle" data-label-expand="△" data-label-collapse="▽">&lt;/span>
+&lt;/label>
+&lt;pre class="language-yaml" >&lt;code>
+name: deploy-aws-eb
+on:
+push:
+branches:
+- master
+jobs:
+build:
+runs-on: ubuntu-latest
+environment: hansenbot
+steps:
+- name: Checkout Source
+uses: actions/checkout@v2
+- name: Generate deployment package
+run: zip -r app.zip . -x &amp;#39;*.git*&amp;#39;
+- name: Deploy to EB
+uses: einaregilsson/beanstalk-deploy@v21
+with:
+aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
+aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+application_name: ${{ secrets.APPLICATION_NAME }}
+environment_name: ${{ secrets.ENVIRONMENT_NAME }}
+existing_bucket_name: ${{ secrets.AWS_BUCKET_NAME }}
+version_label: app-${{ github.SHA }}
+region: ${{ secrets.AWS_REGION }}
+deployment_package: app.zip
+wait_for_deployment: true
+version_description: ${{ github.SHA }}
+&lt;/code>&lt;/pre>
+&lt;/div>
+&lt;p>There isn&amp;rsquo;t really too much to say here, other than this workflow has 3 steps:&lt;/p>
+&lt;ul>
+&lt;li>checkout the latest commit from the master branch&lt;/li>
+&lt;li>generate a zip for the latest application &amp;ldquo;build&amp;rdquo;&lt;/li>
+&lt;li>deploy the app on EB with all the environment-specific stuff defined in secrets&lt;/li>
+&lt;/ul>
+&lt;p>With this workflow file installed on my repository, I can now simply merge new
+changes to the master branch and that kicks off a job that deploys the new changes
+to EB. Excellent!&lt;/p>
+&lt;h2 id="improvements-id-like-to-make-eventually">Improvements I&amp;rsquo;d like to make, eventually.&lt;/h2>
+&lt;p>As of the writing of this blog post, it is a fully functioning bot with all the
+same features as the heroku version, however the deployment is quite perfect and
+so I have a few things that I&amp;rsquo;d like to work out. Perhaps these could be separate
+blog posts when I actually get around to it.&lt;/p>
+&lt;p>&lt;strong>Configure Celery to work with AWS SQS&lt;/strong>. I&amp;rsquo;d like to do this eventually, as
+having dedicated background processes to performing bot commands frees up the
+web requests and makes the bot chat feel much more responsive. For now, having
+everything executed without Celery (or at least ALWAYS_EAGER) is a &amp;ldquo;good enough&amp;rdquo;
+solution.&lt;/p>
+&lt;p>&lt;strong>Configure a &amp;ldquo;dev&amp;rdquo; EB environment that works off a dev branch&lt;/strong>. I&amp;rsquo;d like to get
+to the point where I have a dev branch that I can work off of that deploys to a
+separate &amp;ldquo;dev&amp;rdquo; environment of the EB site. This way I can test new features under
+development without effecting the production version. This is less of an issue
+since the bot is so small in features and is only used by a handful of family
+members, but still they can sometimes be annoyed if I flood our chat channel with
+lots of spam messages that I might generate while testing new features.&lt;/p>
+&lt;h2 id="some-useful-references">Some Useful References&lt;/h2>
+&lt;p>&lt;a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/platforms-linux-extend.html">EB workflow&lt;/a>&lt;/p>
 &lt;div class="footnotes" role="doc-endnotes">
 &lt;hr>
 &lt;ol>
 &lt;li id="fn:1">
-&lt;p>hate this service but that&amp;rsquo;s another story&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;p>I hate &lt;em>GroupMe&lt;/em>, but that&amp;rsquo;s another story&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
 &lt;/li>
 &lt;/ol>
 &lt;/div></content></item></channel></rss>
