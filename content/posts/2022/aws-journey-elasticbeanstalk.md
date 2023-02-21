@@ -182,7 +182,7 @@ This was easy to do, by following the readme for the github action defined
 action ([here](https://github.com/wrhansen/hansenbot/blob/master/.github/workflows/deploy-eb.yaml))
 looks like this:
 
-{{< code language="yaml" title="Github Action" >}}
+```yaml
 name: deploy-aws-eb
 on:
   push:
@@ -212,7 +212,7 @@ jobs:
           deployment_package: app.zip
           wait_for_deployment: true
           version_description: ${{ github.SHA }}
-{{< /code >}}
+```
 
 There isn't really too much to say here, other than this workflow has 3 steps:
 

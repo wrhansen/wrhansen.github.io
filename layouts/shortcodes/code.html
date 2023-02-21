@@ -1,0 +1,7 @@
+{{ $id := delimit (shuffle (seq 1 9)) "" }}
+
+{{ if .Get "language" }}
+    <pre {{ if .Get "language" }}class="language-{{ .Get "language" }}" {{ end }}><code>{{ .Inner | string }}</code></pre>
+{{ else }}
+  {{ errorf "If you want to use the \"collapsable code\" shortcode, you need to pass a mandatory \"language\" param. The issue occured in %q (%q)" .Page.File .Page.Permalink }}
+{{ end }}
