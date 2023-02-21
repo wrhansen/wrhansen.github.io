@@ -1,19 +1,2 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>github on wrhansen.dev blog</title><link>https://blog.wrhansen.dev/tags/github/</link><description>Recent content in github on wrhansen.dev blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>Wesley R Hansen</copyright><lastBuildDate>Mon, 21 Feb 2022 11:57:49 -0500</lastBuildDate><atom:link href="https://blog.wrhansen.dev/tags/github/index.xml" rel="self" type="application/rss+xml"/><item><title>How is This Blog Made?</title><link>https://blog.wrhansen.dev/posts/2022/how-is-this-blog-made/</link><pubDate>Mon, 21 Feb 2022 11:57:49 -0500</pubDate><guid>https://blog.wrhansen.dev/posts/2022/how-is-this-blog-made/</guid><description>Technology This blog is written in markdown and uses the Hugo static site generator. I found a nice minimalist theme called terminal that styles the site the way you see here.
-Deployment For simplicity and ease-of-use, I decided to host this blog on github pages and take advantage of free static site hosting. You can find the contents of this blog in the following repo: link. It&amp;rsquo;s easy to use because github automatically builds and deploys anytime you merge a new commit to the main branch.</description><content>&lt;h2 id="technology">Technology&lt;/h2>
-&lt;p>This blog is written in markdown and uses the &lt;a href="https://gohugo.io/">Hugo&lt;/a> static
-site generator. I found a nice minimalist theme called &lt;a href="">terminal&lt;/a> that styles
-the site the way you see here.&lt;/p>
-&lt;h2 id="deployment">Deployment&lt;/h2>
-&lt;p>For simplicity and ease-of-use, I decided to host this blog on github pages and
-take advantage of free static site hosting. You can find the contents of this
-blog in the following repo: &lt;a href="https://github.com/wrhansen/wrhansen.github.io">link&lt;/a>.
-It&amp;rsquo;s easy to use because github automatically builds and deploys anytime you
-merge a new commit to the &lt;code>main&lt;/code> branch.&lt;/p>
-&lt;p>Additionally, they allow the option to use your own custom domain for the URL
-so I opted with my own domain: &lt;a href="https://blog.wrhansen.dev/">https://blog.wrhansen.dev/&lt;/a>.&lt;/p>
-&lt;h2 id="references">References&lt;/h2>
-&lt;ul>
-&lt;li>Host Hugo on Github: &lt;a href="https://gohugo.io/hosting-and-deployment/hosting-on-github/">link&lt;/a>.&lt;/li>
-&lt;li>Hugo terminal theme: &lt;a href="https://github.com/panr/hugo-theme-terminal">link&lt;/a>&lt;/li>
-&lt;li>Github Pages: &lt;a href="https://pages.github.com/">link&lt;/a>&lt;/li>
-&lt;/ul></content></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>github on wrhansen.dev</title><link>https://blog.wrhansen.dev/tags/github/</link><description>Recent content in github on wrhansen.dev</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Mon, 21 Feb 2022 11:57:49 -0500</lastBuildDate><atom:link href="https://blog.wrhansen.dev/tags/github/index.xml" rel="self" type="application/rss+xml"/><item><title>How is This Blog Made?</title><link>https://blog.wrhansen.dev/posts/2022/how-is-this-blog-made/</link><pubDate>Mon, 21 Feb 2022 11:57:49 -0500</pubDate><guid>https://blog.wrhansen.dev/posts/2022/how-is-this-blog-made/</guid><description>Technology This blog is written in markdown and uses the Hugo static site generator. I found a nice minimalist theme called terminal that styles the site the way you see here.
+Deployment For simplicity and ease-of-use, I decided to host this blog on github pages and take advantage of free static site hosting. You can find the contents of this blog in the following repo: link. It&amp;rsquo;s easy to use because github automatically builds and deploys anytime you merge a new commit to the main branch.</description></item></channel></rss>
