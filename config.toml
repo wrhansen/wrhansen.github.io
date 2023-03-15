@@ -1,24 +1,61 @@
 baseURL = "https://blog.wrhansen.dev/"
 languageCode = "en-us"
 title = "wrhansen.dev"
-theme = "solar-theme-hugo"
+theme = "poison"
 author = "Wesley Hansen"
 enableGitInfo = true
 enableEmoji = true
-paginate = 5
+paginate = 10
 pygmentsStyle = "solarized-dark"
+pluralizelisttitles = false
 
 [params]
-    contentTypeName = "posts"
-    scheme = "preference" # light, dark, gray or preference
-    description = "rantings and ravings"
+    brand = "wrhansen.dev"                      # name of your site - appears in the sidebar
+    # brand_image = "/images/test.jpg"    # path to the image shown in the sidebar
+    description = "Rantings and Ravings of a Software Professional"
+    dark_mode = true                      # optional - defaults to false
 
-[menu]
-    [[menu.main]]
-        name = "About"
-        url = "/about"
+    menu = [
+        {Name = "About", URL = "/about/", HasChildren = false},
+        {Name = "Posts", URL = "/posts/", Pre = "Most Recent:", HasChildren = true, Limit = 5},
+        {Name = "Tags", URL = "/tags/", HasChildren = false},
+        {Name = "Series", URL = "/series/", HasChildren = false}
+    ]
 
-[markup]
-    [markup.highlight]
-        style='solarized-dark'
-        tabWidth = 4
+    # Links to your socials.  Delete any you don't need/use.
+    github_url = "https://github.com/wrhansen"
+    linkedin_url = "https://www.linkedin.com/in/wes-hansen/"
+
+    # Hex colors for your sidebar.
+    sidebar_bg_color = "#002b36"            # default is #202020
+    sidebar_img_border_color = "#657b83"    # default is #515151
+    sidebar_p_color = "#586e75"             # default is #909090
+    sidebar_h1_color = "#93a1a1"               # default is #FFF
+    sidebar_a_color = "#839496"                # default is #FFF
+    sidebar_socials_color = "#586e75"          # default is #FFF
+    moon_sun_color = "#eee8d5"                 # default is #FFF
+    moon_sun_background_color = "#073642"   # default is #515151
+
+    # Hex colors for your content in light mode.
+    text_color = "#657b83"             # default is #222
+    content_bg_color = "#eee8d5"    # default is #FAF9F6
+    post_title_color = "#93a1a1"    # default is #303030
+    list_color = "#cb4b16"          # default is #5a5a5a
+    link_color = "#268bd2"          # default is #268bd2
+    date_color = "#b58900"          # default is #515151
+    table_border_color = "#657b83"  # default is #E5E5E5
+    table_stripe_color = "#b58900"  # default is #F9F9F9
+
+    # Hex colors for your content in dark mode
+    text_color_dark = "#839496"            # default is #eee
+    content_bg_color_dark = "#073642"   # default is #121212
+    post_title_color_dark = "#93a1a1"   # default is #DBE2E9
+    list_color_dark = "#cb4b16"         # default is #9d9d9d
+    link_color_dark = "#268bd2"         # default is #268bd2
+    date_color_dark = "#b58900"         # default is #9a9a9a
+    table_border_color_dark = "#657b83" # default is #515151
+    table_stripe_color_dark = "#b58900" # default is #202020
+
+[taxonomies]
+    series = 'series'
+    tags = 'tags'
