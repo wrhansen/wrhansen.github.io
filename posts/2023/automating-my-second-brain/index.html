@@ -1,0 +1,49 @@
+<!doctype html><html><head><meta charset=utf-8><meta name=viewport content="width=device-width"><title>Using Github Actions to Automate My Second Brain</title><link rel=stylesheet href=https://blog.wrhansen.dev/css/colors-preference.min.61cd3e69b8b301ca4ac5ebdbbcc5daf296b930c9b54862a796e1cb4a24fc09fa.css></head><body><header id=header><h1><a href=https://blog.wrhansen.dev/>wrhansen.dev</a></h1><p>rantings and ravings</p></header><div id=page><div id=sidebar><nav><ul class=nav><li><a href=/about><span>About</span></a></li></ul></nav></div><div id=content><article class=post><h1><a href=https://blog.wrhansen.dev/posts/2023/automating-my-second-brain/>Using Github Actions to Automate My Second Brain</a></h1><div class=post-content><h1 id=building-a-second-brain-with-notion>Building a Second Brain with Notion</h1><p>For the past year I have been building my second brain<sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup> in Notion. I use
+Notion daily to store web clippings, research and meeting notes for work, the
+books I read, book highlights<sup id=fnref:2><a href=#fn:2 class=footnote-ref role=doc-noteref>2</a></sup> and notes, and even the upcoming movies and
+TV shows that I want to watch. The Notion database provides a great user experience
+for capturing, filtering and sorting lists of data like that.</p><h1 id=tracking-perfect-games-on-steam-deck>Tracking Perfect Games on Steam Deck</h1><p>Recently I ran into a scenario that led me to want to track the achievement
+progress I&rsquo;ve made on games played on my Steam Deck. In Steam, they call this
+stat a &ldquo;Perfect Game&rdquo;. Your profile page on Steam actually tracks this stat and
+I would check it occasionally after completing a game on Steam just to see my
+latest &ldquo;Perfect Games&rdquo; count. Here&rsquo;s an example of what my profile looks like:</p><img src=/resources/steam-profile.png alt="Steam Profile" class=center style=border-radius:8px><p>The scenario that led me to want to track my own achievements occurred one day
+when I checked my profile on Steam and noticed that the &ldquo;Perfect Game&rdquo; count
+<em>actually decreased</em>! How could this happen? After some looking around I
+discovered that this occurred because a game I had unlocked all achievements for
+recently had a new update to the game that included a few new achievements as
+well. Okay, so all I have to do to regain the 100% achievements unlocked for such
+a game is to unlock the new achievements that were added? The unfortunate part
+is that the Steam profile page does not really indicate which game(s) that were
+once perfect are no longer so that&rsquo;s why my second brain comes in.</p><h1 id=how-the-integration-works>How the Integration Works</h1><p>It&rsquo;s simple, really. I can use the Steam Web API<sup id=fnref:3><a href=#fn:3 class=footnote-ref role=doc-noteref>3</a></sup> to get a list of all the
+games that I have played with some progress, note which ones are &ldquo;perfect games&rdquo;
+and keep track of them when they no longer become &ldquo;perfect&rdquo;. This is because the
+Steam Web API allows you to retrieve your achievement status for each game you&rsquo;ve
+played. After downloading the current state of my game achievements from the
+Steam Web API, I can use the Notion API to add them to my &ldquo;Games&rdquo; database. This
+is a special database I created in Notion where I want to keep track of all the
+games I&rsquo;ve played and the current achievements status for them. So with the current
+state from the Steam Web API, I can use the Notion api to query the current state
+of all the games that I&rsquo;ve saved in my second brain, compare them, and then patch
+any updates to my second brain with the Notion API. This comparison is key, because
+it&rsquo;s where I can track, through a property on my Notion &ldquo;Games&rdquo; database if a
+game &ldquo;was perfect&rdquo;. This way, I can know exactly which games I&rsquo;ve got a &ldquo;Perfect&rdquo;
+on that are no longer considered &ldquo;Perfect&rdquo; in Steam. I wrote this integration
+in a simple python script which you can check out here:
+<a href=https://github.com/wrhansen/steam-games-tracker>https://github.com/wrhansen/steam-games-tracker</a>.</p><h1 id=automating-it-with-github-actions>Automating it with Github Actions</h1><p>Finally, with my <code>game_data_fetcher.py</code> python script complete, I needed a way
+to run this periodically to keep my Notion second brain up to date with the latest
+achievement data from Steam. I <em>could</em> just run this script whenver I feel like
+from my laptop, but that&rsquo;s no fun, so I should automate it. So I started thinking
+of ways that I could deploy this as simply as possible to run it on a schedule.
+The script itself doesn&rsquo;t require much, there is a miniscule amount of processing
+and some networking to retrieving the data from the two sources and that&rsquo;s it.
+Initially I was thinking of deploying it to a AWS, but realized that was overkill
+and I could really just get away with using Github Actions to run the simple
+python script. Take a look at <code>.github/workflows/update.yaml</code> in the repo linked
+above for the final version of the github action that I created. Refer to the
+following diagram for a summary of how this automation/integration works:</p><img src=/resources/steam-to-notion-integration.png alt="Steam Profile" class=center style=border-radius:8px><h1 id=takeaways>Takeaways</h1><p>Automation is fun, but sometimes it takes some training to identify where you
+might need it. Github Actions is a really fun, free<sup id=fnref:4><a href=#fn:4 class=footnote-ref role=doc-noteref>4</a></sup> and easy to create simple
+automations for a lot of your personal needs. I am going to start thinking more
+about what things I can automate and capture inside my Notion second brain. The
+Notion API is really simple to use and has great documentation, so I look forward
+to using it again in the future.</p><div class=footnotes role=doc-endnotes><hr><ol><li id=fn:1><p>Highly recommend this book: <a href=https://www.amazon.com/Building-Second-Brain-Organize-Potential/dp/1982167386>https://www.amazon.com/Building-Second-Brain-Organize-Potential/dp/1982167386</a>&#160;<a href=#fnref:1 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li><li id=fn:2><p>I use Readwise to help automate my kindle book highlights: <a href=https://readwise.io/>https://readwise.io/</a>&#160;<a href=#fnref:2 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li><li id=fn:3><p><a href=https://developer.valvesoftware.com/wiki/Steam_Web_API#GetNewsForApp_.28v0001.29>https://developer.valvesoftware.com/wiki/Steam_Web_API#GetNewsForApp_.28v0001.29</a>&#160;<a href=#fnref:3 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li><li id=fn:4><p>For public repos, you get a lot of cool Github Actions freebies: <a href=https://docs.github.com/en/billing/managing-billing-for-github-actions/about-billing-for-github-actions#included-storage-and-minutes>https://docs.github.com/en/billing/managing-billing-for-github-actions/about-billing-for-github-actions#included-storage-and-minutes</a>&#160;<a href=#fnref:4 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li></ol></div></div><p class=meta>Posted on <span class=postdate>12. March 2023</span></p></article></div><footer id=footer><p class=copyright>Powered by <a href=https://gohugo.io/>Hugo</a> and the
+<a href=https://github.com/bake/solar-theme-hugo>Solar</a>-theme.</p></footer></div></body></html>
