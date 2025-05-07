@@ -5,7 +5,6 @@ theme = "poison"
 author = "Wesley Hansen"
 enableGitInfo = true
 enableEmoji = true
-paginate = 10
 pygmentsStyle = "solarized-dark"
 pluralizelisttitles = false
 
@@ -70,3 +69,6 @@ pluralizelisttitles = false
         feedDescription = "Rantings and Ravings of a Software Professional"
         feedLink = "https://blog.wrhansen.dev/"
         feedLanguage = "en-us"
+
+[pagination]
+    pagerSize = 10
