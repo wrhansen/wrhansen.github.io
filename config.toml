@@ -59,3 +59,14 @@ pluralizelisttitles = false
 [taxonomies]
     series = 'series'
     tags = 'tags'
+
+[outputs]
+    home = ["HTML", "RSS"]
+
+[services]
+    [services.rss]
+        limit = 10
+        feedTitle = "wrhansen.dev"
+        feedDescription = "Rantings and Ravings of a Software Professional"
+        feedLink = "https://blog.wrhansen.dev/"
+        feedLanguage = "en-us"
