@@ -55,6 +55,9 @@ pluralizelisttitles = false
     table_border_color_dark = "#657b83" # default is #515151
     table_stripe_color_dark = "#b58900" # default is #202020
 
+    rss_icon = true
+    rss_section = "posts"
+
 [taxonomies]
     series = 'series'
     tags = 'tags'
