@@ -15,10 +15,10 @@ description = "Rantings and Ravings of a Software Professional"
 dark_mode = true                                                # optional - defaults to false
 
 menu = [
-    { Name = "About", URL = "/about/", HasChildren = false },
     { Name = "Posts", URL = "/posts/", Pre = "Most Recent:", HasChildren = true, Limit = 5 },
     { Name = "Tags", URL = "/tags/", HasChildren = false },
     { Name = "Series", URL = "/series/", HasChildren = false },
+    { Name = "About", URL = "/about/", HasChildren = false },
 ]
 
 # Links to your socials.  Delete any you don't need/use.
