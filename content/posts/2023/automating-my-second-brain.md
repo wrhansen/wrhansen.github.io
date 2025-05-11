@@ -15,7 +15,7 @@ readingTime: true
 draft: false
 ---
 
-# Building a Second Brain with Notion
+## Building a Second Brain with Notion
 
 For the past year I have been building my second brain[^1] in Notion. I use
 Notion daily to store web clippings, research and meeting notes for work, the
@@ -23,7 +23,7 @@ books I read, book highlights[^2] and notes, and even the upcoming movies and
 TV shows that I want to watch. The Notion database provides a great user experience
 for capturing, filtering and sorting lists of data like that.
 
-# Tracking Perfect Games on Steam Deck
+## Tracking Perfect Games on Steam Deck
 
 Recently I ran into a scenario that led me to want to track the achievement
 progress I've made on games played on my Steam Deck. In Steam, they call this
@@ -43,7 +43,7 @@ a game is to unlock the new achievements that were added? The unfortunate part
 is that the Steam profile page does not really indicate which game(s) that were
 once perfect are no longer so that's why my second brain comes in.
 
-# How the Integration Works
+## How the Integration Works
 
 It's simple, really. I can use the Steam Web API[^3] to get a list of all the
 games that I have played with some progress, note which ones are "perfect games"
@@ -60,14 +60,13 @@ it's where I can track, through a property on my Notion "Games" database if a
 game "was perfect". This way, I can know exactly which games I've got a "Perfect"
 on that are no longer considered "Perfect" in Steam. I wrote this integration
 in a simple python script which you can check out here:
-https://github.com/wrhansen/steam-games-tracker.
+<https://github.com/wrhansen/steam-games-tracker>.
 
-
-# Automating it with Github Actions
+## Automating it with Github Actions
 
 Finally, with my `game_data_fetcher.py` python script complete, I needed a way
 to run this periodically to keep my Notion second brain up to date with the latest
-achievement data from Steam. I *could* just run this script whenver I feel like
+achievement data from Steam. I *could* just run this script whenever I feel like
 from my laptop, but that's no fun, so I should automate it. So I started thinking
 of ways that I could deploy this as simply as possible to run it on a schedule.
 The script itself doesn't require much, there is a miniscule amount of processing
@@ -80,7 +79,7 @@ following diagram for a summary of how this automation/integration works:
 
 {{< image src="/resources/steam-to-notion-integration.png" alt="Steam Profile" position="center" style="border-radius: 8px;" >}}
 
-# Takeaways
+## Takeaways
 
 Automation is fun, but sometimes it takes some training to identify where you
 might need it. Github Actions is a really fun, free[^4] and easy to create simple
@@ -89,8 +88,7 @@ about what things I can automate and capture inside my Notion second brain. The
 Notion API is really simple to use and has great documentation, so I look forward
 to using it again in the future.
 
-
-[^1]: Highly recommend this book: https://www.amazon.com/Building-Second-Brain-Organize-Potential/dp/1982167386
-[^2]: I use Readwise to help automate my kindle book highlights: https://readwise.io/
-[^3]: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetNewsForApp_.28v0001.29
-[^4]: For public repos, you get a lot of cool Github Actions freebies: https://docs.github.com/en/billing/managing-billing-for-github-actions/about-billing-for-github-actions#included-storage-and-minutes
+[^1]: Highly recommend this book: <https://www.amazon.com/Building-Second-Brain-Organize-Potential/dp/1982167386>
+[^2]: I use Readwise to help automate my kindle book highlights: <https://readwise.io/>
+[^3]: <https://developer.valvesoftware.com/wiki/Steam_Web_API#GetNewsForApp_.28v0001.29>
+[^4]: For public repos, you get a lot of cool Github Actions freebies: <https://docs.github.com/en/billing/managing-billing-for-github-actions/about-billing-for-github-actions#included-storage-and-minutes>
